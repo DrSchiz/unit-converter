@@ -19,13 +19,13 @@ This application is a go web project that allows the user to convert various qua
 4.  Build the application using the Go command:
     ```bash
     go build -o unit-converter cmd/main.go
-    ```
+    ``` 
 
 This will create an executable binary file named `unit-converter` in your current directory.
 
 ### Launching/Running
 
-After you launch your executable binary file, the terminal will show you:
+After you launch your executable binary file (`./unit-converter` in terminal for Linux) , the terminal will show you:
 
 ```bash
 Server running on :8000
