@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>Length</title>
+</head>
+
+<body>
+    <div id="navbar"></div>
+    <script>
+        fetch('index.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar').innerHTML = data;
+            });
+    </script>
+    {{if eq .Result ""}}
+    <form method="POST" class="container">
+        <div class="input">
+            <label for="value">Enter the length to convert</label>
+            <input type="number" step="0.1" name="value" required>
+        </div>
+
+        <div class="input">
+            <label for="from">Unit to convert from</label>
+            <select name="from">
+                <option value="mm">millimeter</option>
+                <option value="cm">centimeter</option>
+                <option value="m">meter</option>
+                <option value="km">kilometer</option>
+                <option value="in">inch</option>
+                <option value="ft">foot</option>
+                <option value="yd">yard</option>
+                <option value="mi">mile</option>
+            </select>
+        </div>
+
+        <div class="input">
+            <label for="to">Unit to convert to</label>
+            <select name="to">
+                <option value="mm">millimeter</option>
+                <option value="cm">centimeter</option>
+                <option value="m">meter</option>
+                <option value="km">kilometer</option>
+                <option value="in">inch</option>
+                <option value="ft">foot</option>
+                <option value="yd">yard</option>
+                <option value="mi">mile</option>
+            </select>
+        </div>
+
+        <button type="submit">Enter</button>
+    </form>
+    {{else}}
+    <div class="container">
+        <label for="result">Result of your calculation</label>
+        <h3 id="result">{{.InputValue}}{{.From}}={{.Result}}{{.To}}</h3>
+        <button type="submit" onclick="window.history.back(); return false;">Reset</button>
+    </div>
+    {{end}}
+</body>
+
+</html>
